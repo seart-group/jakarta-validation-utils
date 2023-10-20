@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>ch.usi.si.seart</groupId>
+    <artifactId>jakarta-validation-utils-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>jakarta-validation-utils-legacy</artifactId>
+  <packaging>jar</packaging>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Utilities for the Jakarta Bean Validation API Version 2</description>
+  <url>https://github.com/seart-group/jakarta-validation-utils</url>
+  <inceptionYear>2023</inceptionYear>
+
+  <properties>
+    <!--  Dependency version overrides  -->
+    <jakarta.validation.version>2.0.2</jakarta.validation.version>
+    <org.hibernate.validator.version>6.2.5.Final</org.hibernate.validator.version>
+  </properties>
+</project>
