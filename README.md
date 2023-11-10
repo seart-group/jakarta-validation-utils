@@ -2,10 +2,12 @@
 
 This library provides several custom validation annotations:
 
+- ASCII-only strings
+- Alphanumeric strings
+- Null or non-blank strings
 - OWASP-compliant emails
 - Custom password requirements
 - BCrypt and SHA hash values
-- Null or non-blank strings 
 
 ## Requirements
 
