@@ -11,6 +11,11 @@
       <value>ch.usi.si.seart.validation.validator.AlphanumericValidator</value>
     </validated-by>
   </constraint-definition>
+  <constraint-definition annotation="ch.usi.si.seart.validation.constraints.ASCII">
+    <validated-by>
+      <value>ch.usi.si.seart.validation.validator.ASCIIValidator</value>
+    </validated-by>
+  </constraint-definition>
   <constraint-definition annotation="ch.usi.si.seart.validation.constraints.NullOrNotBlank">
     <validated-by>
       <value>ch.usi.si.seart.validation.validator.NullOrNotBlankValidator</value>
