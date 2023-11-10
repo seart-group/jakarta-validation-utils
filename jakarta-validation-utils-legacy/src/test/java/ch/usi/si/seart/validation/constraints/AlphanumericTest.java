@@ -20,10 +20,10 @@ class AlphanumericTest extends BaseTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "snake_case",
-            "kebab-case",
-            "spaced case",
-            "100$",
+        "snake_case",
+        "kebab-case",
+        "spaced case",
+        "100$",
     })
     void invalidTest(String value) {
         Set<ConstraintViolation<Contract>> violations = validator.validate(new Contract(value));
@@ -33,11 +33,11 @@ class AlphanumericTest extends BaseTest {
     @ParameterizedTest
     @NullAndEmptySource
     @ValueSource(strings = {
-            "lowercase",
-            "UPPERCASE",
-            "CamelCase",
-            "MiXeDCaSe",
-            "L33TH4xx0R",
+        "lowercase",
+        "UPPERCASE",
+        "CamelCase",
+        "MiXeDCaSe",
+        "L33TH4xx0R",
     })
     void validTest(String value) {
         Set<ConstraintViolation<Contract>> violations = validator.validate(new Contract(value));
