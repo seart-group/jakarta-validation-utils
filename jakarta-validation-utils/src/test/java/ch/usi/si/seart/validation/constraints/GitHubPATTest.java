@@ -25,8 +25,8 @@ class GitHubPATTest extends BaseTest {
     @ParameterizedTest
     @EmptySource
     @ValueSource(strings = {
-            " ",
-            "dVOlIJdpOoAJHyLLnBovTzhgEzm7xN54Cx3KxvKB",
+        " ",
+        "dVOlIJdpOoAJHyLLnBovTzhgEzm7xN54Cx3KxvKB",
     })
     void invalidTest(String value) {
         Set<ConstraintViolation<Contract>> violations = validator.validate(new Contract(value));
