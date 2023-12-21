@@ -19,5 +19,6 @@
     <!--  Dependency version overrides  -->
     <jakarta.validation.version>2.0.2</jakarta.validation.version>
     <org.hibernate.validator.version>6.2.5.Final</org.hibernate.validator.version>
+    <jakarta.validation.basePackage>javax.validation</jakarta.validation.basePackage>
   </properties>
 </project>
