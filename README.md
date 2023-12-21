@@ -29,7 +29,7 @@ for example:
   <dependency>
     <groupId>ch.usi.si.seart</groupId>
     <artifactId>jakarta-validation-utils</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
   </dependency>
 </dependencies>
 ```
@@ -49,7 +49,7 @@ then you will need to include the alternative dependency:
   <dependency>
     <groupId>ch.usi.si.seart</groupId>
     <artifactId>jakarta-validation-utils-legacy</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
   </dependency>
 </dependencies>
 ```
