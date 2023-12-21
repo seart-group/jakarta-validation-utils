@@ -8,6 +8,7 @@ This library provides several custom validation annotations:
 - OWASP-compliant emails
 - Custom password requirements
 - BCrypt and SHA hash values
+- GitHub Personal Access Tokens (PATs)
 
 ## Requirements
 

@@ -16,6 +16,11 @@
       <value>ch.usi.si.seart.validation.validator.ASCIIValidator</value>
     </validated-by>
   </constraint-definition>
+  <constraint-definition annotation="ch.usi.si.seart.validation.constraints.GitHubPAT">
+    <validated-by>
+      <value>ch.usi.si.seart.validation.validator.GitHubPATValidator</value>
+    </validated-by>
+  </constraint-definition>
   <constraint-definition annotation="ch.usi.si.seart.validation.constraints.NullOrNotBlank">
     <validated-by>
       <value>ch.usi.si.seart.validation.validator.NullOrNotBlankValidator</value>
