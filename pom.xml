@@ -236,7 +236,12 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>3.0.1</version>
         <configuration>
+          <releaseProfiles>release</releaseProfiles>
+          <preparationProfiles>release</preparationProfiles>
           <tagNameFormat>v@{project.version}</tagNameFormat>
+          <preparationGoals>
+            resources:copy-resources@default-generate-docs scm:add -Dincludes=README.md
+          </preparationGoals>
         </configuration>
       </plugin>
       <plugin>
@@ -319,6 +324,35 @@
       <activation>
         <activeByDefault>false</activeByDefault>
       </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+            <executions>
+              <execution>
+                <id>default-generate-docs</id>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <encoding>${project.build.sourceEncoding}</encoding>
+                  <outputDirectory>${project.basedir}</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>doc</directory>
+                      <includes>
+                        <include>README.md</include>
+                      </includes>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 </project>
