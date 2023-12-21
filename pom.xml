@@ -337,30 +337,40 @@
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <version>4.3</version>
-        <configuration>
-          <licenseSets>
-            <licenseSet>
-              <header>${session.executionRootDirectory}/LICENSE</header>
-              <includes>
-                <include>src/main/**/*.java</include>
-              </includes>
-            </licenseSet>
-          </licenseSets>
-        </configuration>
         <executions>
           <execution>
-            <id>default-format</id>
-            <phase>generate-sources</phase>
+            <id>default-format-sources</id>
+            <phase>process-sources</phase>
             <goals>
               <goal>format</goal>
             </goals>
+            <configuration>
+              <licenseSets>
+                <licenseSet>
+                  <header>${session.executionRootDirectory}/headers/HEADER</header>
+                  <includes>
+                    <include>src/main/**/*.java</include>
+                  </includes>
+                </licenseSet>
+              </licenseSets>
+            </configuration>
           </execution>
           <execution>
-            <id>default-remove</id>
-            <phase>package</phase>
+            <id>default-format-test-sources</id>
+            <phase>process-test-sources</phase>
             <goals>
-              <goal>remove</goal>
+              <goal>format</goal>
             </goals>
+            <configuration>
+              <licenseSets>
+                <licenseSet>
+                  <header>${session.executionRootDirectory}/headers/WARNING</header>
+                  <includes>
+                    <include>src/test/**/*.java</include>
+                  </includes>
+                </licenseSet>
+              </licenseSets>
+            </configuration>
           </execution>
         </executions>
       </plugin>
