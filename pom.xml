@@ -66,6 +66,7 @@
     <java.version>8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jakarta.validation.version>3.0.2</jakarta.validation.version>
+    <jakarta.validation.basePackage>jakarta.validation</jakarta.validation.basePackage>
     <org.hibernate.validator.version>7.0.5.Final</org.hibernate.validator.version>
     <org.junit.version>5.10.1</org.junit.version>
     <org.projectlombok.version>1.18.30</org.projectlombok.version>
@@ -115,14 +116,62 @@
   </dependencies>
 
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.3.1</version>
+          <executions>
+            <execution>
+              <id>default-generate-sources</id>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <encoding>${project.build.sourceEncoding}</encoding>
+                <outputDirectory>
+                  ${project.build.sourceDirectory}/ch/usi/si/seart/validation
+                </outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>
+                      ${session.executionRootDirectory}/jakarta-validation-utils-template/validation
+                    </directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+            <execution>
+              <id>default-generate-test-sources</id>
+              <phase>generate-test-sources</phase>
+              <goals>
+                <goal>copy-resources</goal>
+              </goals>
+              <configuration>
+                <encoding>${project.build.sourceEncoding}</encoding>
+                <outputDirectory>
+                  ${project.build.testSourceDirectory}/ch/usi/si/seart/validation/constraints
+                </outputDirectory>
+                <resources>
+                  <resource>
+                    <directory>
+                      ${session.executionRootDirectory}/jakarta-validation-utils-template/test
+                    </directory>
+                    <filtering>true</filtering>
+                  </resource>
+                </resources>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>3.3.2</version>
-      </plugin>
-      <plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.3.1</version>
       </plugin>
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
@@ -236,7 +285,12 @@
         <artifactId>maven-release-plugin</artifactId>
         <version>3.0.1</version>
         <configuration>
+          <releaseProfiles>release</releaseProfiles>
+          <preparationProfiles>release</preparationProfiles>
           <tagNameFormat>v@{project.version}</tagNameFormat>
+          <preparationGoals>
+            resources:copy-resources@default-generate-docs scm:add -Dincludes=README.md
+          </preparationGoals>
         </configuration>
       </plugin>
       <plugin>
@@ -283,33 +337,81 @@
         <groupId>com.mycila</groupId>
         <artifactId>license-maven-plugin</artifactId>
         <version>4.3</version>
-        <configuration>
-          <licenseSets>
-            <licenseSet>
-              <header>${session.executionRootDirectory}/LICENSE</header>
-              <includes>
-                <include>src/main/**/*.java</include>
-              </includes>
-            </licenseSet>
-          </licenseSets>
-        </configuration>
         <executions>
           <execution>
-            <id>default-format</id>
-            <phase>generate-sources</phase>
+            <id>default-format-sources</id>
+            <phase>process-sources</phase>
             <goals>
               <goal>format</goal>
             </goals>
+            <configuration>
+              <licenseSets>
+                <licenseSet>
+                  <header>${session.executionRootDirectory}/headers/HEADER</header>
+                  <includes>
+                    <include>src/main/**/*.java</include>
+                  </includes>
+                </licenseSet>
+              </licenseSets>
+            </configuration>
           </execution>
           <execution>
-            <id>default-remove</id>
-            <phase>package</phase>
+            <id>default-format-test-sources</id>
+            <phase>process-test-sources</phase>
             <goals>
-              <goal>remove</goal>
+              <goal>format</goal>
             </goals>
+            <configuration>
+              <licenseSets>
+                <licenseSet>
+                  <header>${session.executionRootDirectory}/headers/WARNING</header>
+                  <includes>
+                    <include>src/test/**/*.java</include>
+                  </includes>
+                </licenseSet>
+              </licenseSets>
+            </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+            <executions>
+              <execution>
+                <id>default-generate-docs</id>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <encoding>${project.build.sourceEncoding}</encoding>
+                  <outputDirectory>${project.basedir}</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>doc</directory>
+                      <includes>
+                        <include>README.md</include>
+                      </includes>
+                      <filtering>true</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
