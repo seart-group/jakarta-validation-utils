@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import javax.validation.ConstraintViolation;
 import java.util.Set;
 
-public class BCryptHashTest extends BaseTest {
+class BCryptHashTest extends BaseTest {
 
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     private static final class Contract {
