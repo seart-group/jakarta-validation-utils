@@ -3,7 +3,7 @@
   <parent>
     <groupId>ch.usi.si.seart</groupId>
     <artifactId>jakarta-validation-utils-parent</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>0.4.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
