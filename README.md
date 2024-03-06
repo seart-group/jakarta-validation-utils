@@ -9,6 +9,7 @@ This library provides several custom validation annotations:
 - Custom password requirements
 - BCrypt and SHA hash values
 - GitHub Personal Access Tokens (PATs)
+- Semantic version strings
 
 ## Requirements
 
