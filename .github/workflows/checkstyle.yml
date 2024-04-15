@@ -15,7 +15,7 @@ jobs:
           - jakarta-validation-utils-legacy
     steps:
       - name: Checkout latest
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run CheckStyle
         uses: nikitasavinov/checkstyle-action@master
         with:
