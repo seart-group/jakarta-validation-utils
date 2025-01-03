@@ -18,15 +18,14 @@ Requires a minimum of Java 8.
 
 ## Using the current version
 
-To use the most recent version, simply include the library with the latest version of the Jakarta Validation API,
-for example:
+To use the most recent version, include the library with the latest version of the Jakarta Validation API, for example:
 
 ```xml
 <dependencies>
   <dependency>
     <groupId>jakarta.validation</groupId>
     <artifactId>jakarta.validation-api</artifactId>
-    <version>3.0.2</version>
+    <version>3.1.0</version>
   </dependency>
   <dependency>
     <groupId>ch.usi.si.seart</groupId>
@@ -38,7 +37,7 @@ for example:
 
 ## Using the legacy version
 
-If you are still using the previous major release of Jakarta Validation API (i.e. you are using Spring Boot 2),
+If you are still using the previous major release of Jakarta Validation API (for instance, you are using Spring Boot 2),
 then you will need to include the alternative dependency:
 
 ```xml
@@ -58,6 +57,6 @@ then you will need to include the alternative dependency:
 
 ## Migrating from legacy
 
-Aside from upgrading your Jakarta Validation API (or its dependents),
-you will only need to change the `artifactId` from `jakarta-validation-utils-legacy` to `jakarta-validation-utils`.
+Aside from upgrading your Jakarta Validation API (or its dependents), you will only need to change the `artifactId`
+from `jakarta-validation-utils-legacy` to `jakarta-validation-utils`.
 No other code changes required.
