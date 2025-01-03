@@ -30,7 +30,7 @@ To use the most recent version, include the library with the latest version of t
   <dependency>
     <groupId>ch.usi.si.seart</groupId>
     <artifactId>jakarta-validation-utils</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
   </dependency>
 </dependencies>
 ```
@@ -50,7 +50,7 @@ then you will need to include the alternative dependency:
   <dependency>
     <groupId>ch.usi.si.seart</groupId>
     <artifactId>jakarta-validation-utils-legacy</artifactId>
-    <version>0.4.0</version>
+    <version>0.5.0</version>
   </dependency>
 </dependencies>
 ```
