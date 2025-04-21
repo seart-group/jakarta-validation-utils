@@ -69,7 +69,7 @@
     <jakarta.validation.basePackage>jakarta.validation</jakarta.validation.basePackage>
     <org.hibernate.validator.version>7.0.5.Final</org.hibernate.validator.version>
     <org.junit.version>5.12.2</org.junit.version>
-    <org.projectlombok.version>1.18.36</org.projectlombok.version>
+    <org.projectlombok.version>1.18.38</org.projectlombok.version>
   </properties>
 
   <dependencyManagement>
