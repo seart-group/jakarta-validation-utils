@@ -67,7 +67,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jakarta.validation.version>3.1.1</jakarta.validation.version>
     <jakarta.validation.basePackage>jakarta.validation</jakarta.validation.basePackage>
-    <org.hibernate.validator.version>7.0.5.Final</org.hibernate.validator.version>
+    <org.hibernate.validator.version>9.0.0.Final</org.hibernate.validator.version>
     <org.junit.version>5.13.1</org.junit.version>
     <org.projectlombok.version>1.18.38</org.projectlombok.version>
   </properties>
